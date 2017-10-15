@@ -14,5 +14,5 @@ command = gunicorn  --chdir /project/api -w 2  -b 0.0.0.0:5000 m
 
 
 
-docker run -d --name gunicorn-v3 -v /project:/project -v /project/log:/tmp -v /project/supervisor:/etc/supervisor -p 5000:5000 gunicorn-falcon
+docker run -d --name gunicorn -v /project:/project -v /project/log:/tmp -v /project/supervisor:/etc/supervisor -p 5000:5000 gunicorn-falcon
 
