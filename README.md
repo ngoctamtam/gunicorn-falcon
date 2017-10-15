@@ -6,6 +6,7 @@ vim /project/supervisor/supervisord.conf
 [supervisord]
 nodaemon = true
 logfile = /var/log/supervisord.log
+
 pidfile = /var/run/supervisord.pid
 
 [program:project]
