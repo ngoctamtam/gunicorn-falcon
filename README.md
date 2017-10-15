@@ -1,5 +1,6 @@
 # docker-gunicorn-falcon
 mkdir -p /project/api/  /project/log  /project/supervisor
+
 vim /project/supervisor/supervisord.conf
 
 [supervisord]
