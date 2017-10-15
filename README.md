@@ -1,7 +1,17 @@
-# docker-nginx-gunicorn-falcon
-This is a seed app for Docker with Nginx, Guincorn and the Falcon web framework
+# docker-gunicorn-falcon
+mkdir -p /project/api/  /project/log  /project/supervisor
+vim /project/supervisor/supervisord.conf
+
+[supervisord]
+nodaemon = true
+logfile = /var/log/supervisord.log
+pidfile = /var/run/supervisord.pid
+
+[program:project]
+autorestart = true
+command = gunicorn  --chdir /project/api -w 2  -b 0.0.0.0:5000 wsgi
 
 
-To Run:
 
-docker run  -p 80:80  -p 5000:5000 -d image_id
+docker run -d --name gunicorn-v3 -v /project:/project -v /project/log:/tmp -v /project/supervisor:/etc/supervisor -p 5000:5000 gunicorn-falcon
+
